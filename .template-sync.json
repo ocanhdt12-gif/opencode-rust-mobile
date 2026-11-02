@@ -1,0 +1,6 @@
+{
+  "_comment": "Cấu hình cho `opencode-tools sync` — kéo managed paths mới từ template canonical. Project con copy file này.",
+  "templateRepo": "git@github.com:ocanhdt12-gif/opencode-rust-template.git",
+  "managedPaths": ["AGENTS.md", ".agent", ".opencode", "skills"],
+  "reportOnlyPaths": ["opencode.jsonc", "deny.toml", ".github/workflows/ci.yml"]
+}

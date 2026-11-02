@@ -1,0 +1,38 @@
+# cargo-deny config — supply-chain / license / advisory gate cho tooling template.
+# Chạy: cargo deny check   (CI job "security").
+# Project con sinh từ template nên copy file này và chỉnh allow list theo nhu cầu.
+
+[advisories]
+# Dùng advisory DB mặc định của RustSec. yanked crate = cảnh báo.
+yanked = "warn"
+# version = 2 là format mới; bỏ field ignore rỗng để không vô tình bỏ qua.
+ignore = []
+
+[licenses]
+# Chỉ cho phép license permissive phổ biến. Thêm vào đây khi có dependency hợp lệ mới.
+allow = [
+    "MIT",
+    "Apache-2.0",
+    "Apache-2.0 WITH LLVM-exception",
+    "BSD-2-Clause",
+    "BSD-3-Clause",
+    "ISC",
+    "Unicode-3.0",
+    "Unicode-DFS-2016",
+    "Zlib",
+    "MPL-2.0",
+]
+# License copyleft mạnh (GPL…) không tự động cho qua — buộc review tay.
+confidence-threshold = 0.9
+
+[bans]
+# Chặn nhiều phiên bản trùng của cùng một crate (phình binary + rủi ro).
+multiple-versions = "warn"
+# Wildcard version ("*") trong Cargo.toml là mùi supply-chain xấu.
+wildcards = "deny"
+
+[sources]
+# Chỉ cho phép crate từ crates.io chính thức. Git/registry lạ = từ chối.
+unknown-registry = "deny"
+unknown-git = "deny"
+allow-registry = ["https://github.com/rust-lang/crates.io-index"]

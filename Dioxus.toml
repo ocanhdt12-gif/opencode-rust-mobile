@@ -1,0 +1,10 @@
+# Dioxus.toml — cấu hình dx CLI (mẫu). Project con chỉnh theo app thật.
+[application]
+name = "app"
+default_platform = "desktop"   # desktop | android | ios | web
+
+[bundle]
+identifier = "com.example.app"
+# icon = ["assets/icon.png"]
+
+# Android/iOS cần toolchain riêng — xem skills/rust-mobile-guidelines/SKILL.md

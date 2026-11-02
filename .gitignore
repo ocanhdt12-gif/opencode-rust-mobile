@@ -1,0 +1,17 @@
+# Rust
+/target
+**/*.rs.bk
+Cargo.lock.orig
+
+# Keep Cargo.lock for the binary workspace (reproducible tooling builds)
+# (not ignored on purpose)
+
+# Editor / OS
+.DS_Store
+*.swp
+.idea/
+.vscode/
+
+# opencode runtime (per-project, not template-owned)
+/.context/runs/
+/.context/review-reports/
