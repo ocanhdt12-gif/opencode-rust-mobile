@@ -17,7 +17,7 @@ Lỗi/thiếu file này KHÔNG chặn flow.
 
 ## Việc phải làm
 1. Đọc `SPECIFICATIONS.md` + `.context/brainstorm-log.md` (+ ảnh/Figma nếu có).
-2. Đọc `skills/<stack>/design-tokens.md` để đối chiếu (web: `skills/react-nodejs/`, mobile: `skills/react-native/`).
+2. Đọc `skills/<stack>/design-tokens.md` để đối chiếu (web: `skills/rust-mobile-guidelines/`, mobile: `skills/rust-mobile-guidelines/`).
 3. Hỏi user design reference: ảnh / Figma link / tự design — **hỏi một câu một lúc**.
 4. Sinh/ cập nhật `skills/<stack>/design-tokens.md` (colors, typography, spacing, radius, shadows).
 5. Sinh `.context/design-spec.md` (mỗi screen: layout, components, states loading/empty/error, interactions).

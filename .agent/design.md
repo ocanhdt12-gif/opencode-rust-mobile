@@ -20,7 +20,7 @@ File đó chứa taste-skill v2 — bộ rules chống "AI slop" trong frontend 
 
 ## ^ MANDATORY: UI/UX Design Intelligence
 
-> **ĐỌC `skills/ui-ux-pro-max/SKILL.md`** để đưa quyết định thiết kế cụ thể (color/typography/layout/animation theo product type) — không tự bịa.
+> **ĐỌC `skills/impeccable/SKILL.md`** để đưa quyết định thiết kế UI cụ thể (color/typography/layout/motion) cho UI Dioxus mobile — không tự bịa.
 
 Áp dụng 10 priority categories (theo thứ tự ưu tiên):
 - **CRITICAL**: Accessibility (contrast 4.5:1, keyboard nav, aria) + Touch & Interaction (min 44×44px, spacing 8px+, loading feedback)
@@ -28,9 +28,9 @@ File đó chứa taste-skill v2 — bộ rules chống "AI slop" trong frontend 
 - **MEDIUM**: Typography & Color (base 16px, line-height 1.5, semantic tokens) + Animation (150–300ms, meaningful motion) + Forms (visible labels, error near field)
 - **Navigation**: predictable back, bottom nav ≤5, deep linking
 
-**Workflow Generate Design System** (cho page/project mới): analyze product type → build pattern + style + colors + typography + effects → đối chiếu `skills/react-nodejs/design-tokens.md`.
+**Workflow Generate Design System** (cho page/project mới): analyze product type → build pattern + style + colors + typography + effects → đối chiếu `skills/rust-mobile-guidelines/design-tokens.md`.
 
-**Ưu tiên conflict:** taste-skill §4 Anti-Slop > ui-ux-pro-max defaults.
+**Ưu tiên conflict:** taste-skill §4 Anti-Slop > impeccable defaults.
 
 ### Workflow tích hợp:
 ```
@@ -55,19 +55,18 @@ File đó chứa taste-skill v2 — bộ rules chống "AI slop" trong frontend 
 
 ## Output
 - `.context/design-spec.md` — design spec đầy đủ cho từng screen
-- `skills/react-nodejs/design-tokens.md` — design tokens (colors, typography, spacing)
+- `skills/rust-mobile-guidelines/design-tokens.md` — design tokens (colors, typography, spacing)
 - Nếu bật Scalability Option → thêm mục Architecture & Infrastructure vào design-spec
 
-## 🖼️ m3e-canvas (sketch screen trước khi viết spec)
+## 🖼️ Phác UI trước khi viết spec (optional)
 
-> Trước khi viết screen specs cho screen có UI phức tạp / mobile-first → **ĐỌC `skills/m3e-canvas/SKILL.md`** và sketch nhanh trong browser (https://lnkiai.github.io/m3e-canvas/):
+> Với screen UI phức tạp (Dioxus mobile) → **ĐỌC `skills/impeccable/SKILL.md`** để phác layout/component trước khi viết spec:
 
-- Kéo-thả M3 parts (app bar, cards, lists, FAB, chips, text fields...), gán navigation flow (tap-to-navigate)
-- Chọn target đúng project (template web → chọn **web**)
-- Copy prompt → dán vào `.context/design-spec.md` mục tương ứng từng screen (mục "Screen spec (m3e-canvas): ...")
-- Đối chiếu prompt với `design-tokens.md` (theme màu/shape/type đồng bộ) trước khi loop code
+- Phác cấu trúc component Dioxus (layout, list, nav flow) theo convention `rust-mobile-guidelines`
+- Lưu note phác thảo vào `.context/design-spec.md` mục tương ứng từng screen
+- Đối chiếu với `design-tokens.md` (theme màu/shape/type đồng bộ) trước khi loop code
 
-> Chỉ dùng khi cần mockup/phác thảo hoặc user cung cấp ảnh thiết kế — không bắt buộc mỗi task. KHÔNG dùng AI helper (cần API key) trong template.
+> Chỉ dùng khi cần phác thảo hoặc user cung cấp ảnh thiết kế — không bắt buộc mỗi task.
 
 ---
 
@@ -167,7 +166,7 @@ Propose design system phù hợp.
 
 ## Phase 2: Design Tokens
 
-Sau khi có design reference (ảnh hoặc tự generate), tạo file `skills/react-nodejs/design-tokens.md`:
+Sau khi có design reference (ảnh hoặc tự generate), tạo file `skills/rust-mobile-guidelines/design-tokens.md`:
 
 ```markdown
 # Design Tokens
@@ -257,6 +256,6 @@ Cho từng screen trong SPECIFICATIONS.md, tạo layout spec:
 ## After Design Phase
 
 1. Lưu `.context/design-spec.md`
-2. Update `skills/react-nodejs/design-tokens.md`
+2. Update `skills/rust-mobile-guidelines/design-tokens.md`
 3. (BEST-EFFORT) Nếu project có kiến trúc/flow đáng vẽ (nhiều service, auth flow, data pipeline, CI/CD…) → ĐỌC `skills/archify/SKILL.md`, dựng `architecture` + `workflow`, lưu `docs/diagrams/`. Nếu archify chưa cài / bị chặn `external_directory` / lỗi → **ghi blocker rồi bỏ qua**, KHÔNG fail bước design (design-spec + tokens vẫn phải xong).
 4. Trigger `.agent/graph.md`

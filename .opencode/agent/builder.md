@@ -37,7 +37,7 @@ Trước khi làm bất cứ gì, đọc theo thứ tự:
 3. Task file được giao (`tasks/**/phase-*-task-*.md` hoặc `tasks/**/layer-*-task-*.md`) — scope, acceptance criteria, files.
 
 > ⚡ **Chạy song song trong worktree:** dispatcher giao cho bạn 1 **git worktree riêng** (dispatcher đã `setup` sẵn). Bạn `cd` vào worktree đó làm việc — chỉ thấy file của mình, không đụng builder khác. Khi task PASS review → **commit TRONG worktree** (`git add <scope files>` + `git commit`), rồi **báo PASS/BLOCKED về dispatcher**. **KHÔNG** tự ghi `.context/progress.json`, **KHÔNG** merge/push — dispatcher lo gom. Nếu không được giao worktree (layer 1 task) → chạy như bình thường, không commit.
-4. Conventions của repo theo profile: chỉ dùng `skills/react-nodejs/*` nếu stack/profile khớp React/Node.
+4. Conventions của repo theo profile: chỉ dùng `skills/rust-mobile-guidelines/*` nếu stack/profile khớp React/Node.
    Chỉ áp dụng Prisma pattern nếu `db_tool: prisma`; chỉ dùng pnpm command nếu `package_manager: pnpm`.
 
 Quy tắc bắt buộc:
@@ -50,13 +50,13 @@ Quy tắc bắt buộc:
 - **Chống over-engineering** — dừng ở giải pháp tối giản nhất work (`skills/ponytail/SKILL.md`).
 - **KHÔNG fix mò** khi chưa có root cause (`skills/superpowers/systematic-debugging.md`).
 - Đọc security skill trước khi code input/auth/DB (`skills/security/*`).
-- Task đụng TS/JS: đọc `skills/anti-slop/SKILL.md`; chạy `npx oxlint` (nếu repo có oxlint config) trước khi bàn giao.
+- Task đụng Rust: chạy `cargo clippy --all-targets -- -D warnings` + `cargo fmt` trước khi bàn giao.
   Không thêm `as any`/dictionary type "an toàn giả", không `filter().map()`/reduce copy accumulator.
 - Code mới/refactor: tuân `skills/ai-readable-codebase/SKILL.md` — tên self-descriptive, hàm ≤50 dòng,
   ít indirection (≤3 bước nhảy), comment WHY; cập nhật `README.md`/`ARCHITECTURE.md` khi đổi luồng chính.
-- Cần mockup nhanh cho UI mới (optional): dùng `skills/m3e-canvas/SKILL.md`, lưu prompt vào
+- Cần mockup nhanh cho UI mới (optional): dùng `skills/impeccable/SKILL.md`, lưu prompt vào
   `.context/design-spec.md` rồi mới code.
-- Đọc `skills/responsive-web/SKILL.md` trước khi sửa bất kỳ UI; tuân thủ responsive checklist
+- Đọc `skills/rust-mobile-guidelines/SKILL.md` (UI section) trước khi sửa bất kỳ UI; tuân thủ responsive checklist
   (375/768/1280, không h-scroll, touch ≥44px, `100dvh`, table scroll/card, ảnh không tràn) trước khi bàn giao.
 - Chạy **đúng verify commands** trong profile trước khi báo xong. Không hardcode `npm`/`pnpm`/Prisma.
   Nếu project chưa cấu hình stack/app code → hỏi hoặc ghi `skip, no app configured`.

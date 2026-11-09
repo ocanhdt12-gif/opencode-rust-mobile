@@ -62,10 +62,10 @@ Chạy **Project Start** — chuỗi khởi tạo **chạy liên tục** cho rep
 |---|---|---|---|
 | 1. Spec | `spec-init` → `spec-validator` | `spec-init.md`, `spec-validator.md` | `brainstorming`, `superpowers` |
 | 2. Brainstorm | — | `brainstorm.md` | `skills/brainstorming/SKILL.md` |
-| 3. Design | `design` | `design.md` | `impeccable`, `taste-skill-v2`, `ui-ux-pro-max` (web) |
+| 3. Design | `design` | `design.md` | `impeccable`, `taste-skill-v2` |
 | 4. Graph | `graph` | `graph.md` | `archify` |
 | 5. Loop | `builder`, `reviewer` (+ `error-analyzer`; cuối layer cuối: `spec-publisher`) | `loop.md`, `spec-publish.md` | `superpowers`, `ponytail`, `security`, `monitoring` |
-| Deploy | — | `devops.md`, `rollback.md` | `ai-friendly-web` (web) |
+| Deploy | — | `devops.md`, `rollback.md` | — |
 
 ## Ghi chú
 - `/start` = **một** cửa vào cho lần đầu dựng dự án; cả chuỗi tự chạy, user chỉ duyệt ở checkpoint.

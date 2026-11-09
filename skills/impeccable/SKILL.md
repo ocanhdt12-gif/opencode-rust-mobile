@@ -64,4 +64,4 @@ Trước khi Reviewer PASS task UI, xác nhận:
 ## Kết nối với template
 
 - Phase 5 Review: áp dụng craft-floor + refuse list cho **mọi task UI** trước khi duyệt PASS
-- Kết hợp `skills/responsive-web/SKILL.md` (responsive checklist) — impeccable lo craft/quality, responsive lo breakpoint/touch
+- UI Dioxus/desktop: impeccable lo craft/quality; layout/breakpoint theo `rust-guidelines`/`rust-mobile-guidelines`

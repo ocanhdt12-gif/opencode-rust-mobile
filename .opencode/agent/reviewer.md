@@ -16,8 +16,8 @@ permission:
     # verify-commands:end
     "aislop *": allow
     "npx aislop*": allow
-    "oxlint *": allow
-    "npx oxlint*": allow
+    "cargo clippy*": allow
+    "cargo fmt*": allow
     "ocr *": allow
     "npx blitzstrike*": allow
     "pnpm *typecheck*": allow
@@ -85,19 +85,17 @@ Phạm vi review (tùy loại task):
 - **Testing**: happy + error + edge; test dùng contract thật, không false-confidence.
 - **Surgical diff** (`skills/karpathy-guidelines/SKILL.md`): mọi dòng trace về task,
   không drive-by refactor, không silent over-engineer.
-- **UI** (nếu có): craft-floor (`skills/impeccable/SKILL.md`), frontend-checklist,
-  responsive 375/768/1280 (`skills/responsive-web/SKILL.md`).
+- **UI** (nếu có, Dioxus): craft-floor (`skills/impeccable/SKILL.md`).
 - **AI-slop gate** (nếu có code): chạy `aislop scan --changes --json`, score ≥ 80 (`skills/aislop/SKILL.md`).
-- **Anti-slop/type gate** (nếu diff đụng TS/JS): chạy `npx oxlint` khi repo có oxlint config
-  (`skills/anti-slop/SKILL.md`); error mới → **FAIL**. Chưa cấu hình oxlint → ghi `skip, oxlint not configured`.
+- **Rust lint/type gate** (khi diff đụng Rust): chạy `cargo clippy --all-targets -- -D warnings` + `cargo fmt --check`;
+  warning/error mới → **FAIL**. Repo chưa build được → ghi `skip, cargo not configured`.
 - **AI-readable gate** mọi phase (`skills/ai-readable-codebase/SKILL.md` mục 6): soi AI-chaos indicators
   (tên mơ hồ, hàm >50 dòng, indirection >3 bước, magic number, comment WHAT, code mới không cập nhật
   README/ARCHITECTURE khi đổi luồng chính). **≥3 indicators → FAIL**.
 - **Open Code Review gate** (optional, `skills/open-code-review/SKILL.md`): nếu có `ocr` → `ocr delegate preview`
   hoặc `ocr review --format json`; finding **CRITICAL** (XSS/SQLi/NPE/thread-safety/security) → **FAIL**,
   ≥3 MAJOR → FAIL. Chưa cài `ocr` → ghi `skip, ocr not installed`, **không** chặn PASS.
-- **AI-friendly web gate** (chỉ task public-facing/web public): thiếu `llms.txt`/`robots.txt`/`sitemap.xml`
-  hoặc chặn AI crawlers (`skills/ai-friendly-web/SKILL.md`) → **MAJOR → FAIL**. Task nội bộ/không public → `N/A`.
+- **AI-friendly web gate**: N/A cho template Rust mobile (Dioxus), không áp dụng.
 - **Security pentest** (optional, chỉ STRICT task nhạy cảm: auth/API public/input): `skills/blitzstrike/SKILL.md`;
   chỉ finding **STRIKE-validated** mới tính FAIL; chưa cài/không môi trường được phép → bỏ qua, ghi chú.
 
@@ -115,8 +113,8 @@ diff/phase đang review có đụng UI (route/component/CSS). Không đụng UI 
 **Phạm vi:** chỉ đánh giá **thay đổi UI trong diff/phase đang review**, KHÔNG audit toàn repo.
 Vấn đề có sẵn ngoài diff → ghi `ngoài scope, đề xuất task riêng`, không tính FAIL cho phase này.
 
-Đọc `skills/responsive-web/SKILL.md` (phần liên quan) rồi kiểm và **ghi kết quả từng mục (OK / FAIL / N/A) +
-bằng chứng** vào report. Test ở 3 widths từ `ui.responsive_breakpoints` trong profile (mặc định **375 / 768 / 1280**).
+Đọc `skills/rust-mobile-guidelines/SKILL.md` (phần UI/Dioxus) rồi kiểm và **ghi kết quả từng mục (OK / FAIL / N/A) +
+bằng chứng** vào report.
 
 - **Layout:** không horizontal scroll (document `scrollWidth ≤ clientWidth`); mobile-first (`min-width` media query);
   grid dùng `auto-fit`/`minmax` (không cột cố định); container không fixed `px`.
@@ -151,7 +149,7 @@ Trả về report:
 - Blast radius: file/module/API/client/data nào có thể bị ảnh hưởng
 - Verify commands + result: lệnh đã chạy hoặc `skip, no app configured`
 - Responsive Checklist Gate: (bắt buộc khi diff đụng UI) kết quả từng mục (OK / FAIL / N/A) + bằng chứng; không bỏ trống
-- Skill gates: kết quả `aislop` / `oxlint` (anti-slop) / `ocr` (open-code-review) / AI-readable / ai-friendly-web / blitzstrike — mỗi gate `OK | FAIL | N/A | skip <lý do>` + bằng chứng; không bỏ trống
+- Skill gates: kết quả `aislop` / `cargo clippy` / `ocr` (open-code-review) / AI-readable / blitzstrike — mỗi gate `OK | FAIL | N/A | skip <lý do>` + bằng chứng; không bỏ trống
 - Findings: issues phân loại **[CRITICAL] / [MAJOR] / [MINOR]**, mỗi issue: file:line + cách fix đề xuất
 - Verdict: ✅ PASS / ❌ FAIL
 - PASS chỉ khi không còn CRITICAL/MAJOR **và**, với bug task, original repro status là `PASS` có evidence kiểm chứng được.

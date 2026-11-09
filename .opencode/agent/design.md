@@ -25,6 +25,6 @@ Wrapper gọi `.agent/design.md`. Sinh design spec + design tokens **trước kh
 6. Nếu có kiến trúc/flow đáng vẽ → `skills/archify` → `docs/diagrams/`.
 7. **Confirm design tokens với user** trước khi sang Graph.
 
-> Stack path: web `skills/react-nodejs/`, mobile `skills/react-native/`.
+> Stack path: web `skills/rust-mobile-guidelines/`, mobile `skills/rust-mobile-guidelines/`.
 
 **Attribution:** completion report trả về mở đầu bằng `Agent: design`.

@@ -126,7 +126,7 @@
 │  • Task file                         │
 │  • .context/error-memory.md          │
 │  • Related existing code             │
-│  • skills/react-nodejs/patterns.md   │
+│  • skills/rust-mobile-guidelines/patterns.md   │
 └──────────────┬──────────────────────┘
                ▼
 ┌─────────────────────────────────────┐
@@ -182,11 +182,11 @@ TRƯỚC KHI làm bất cứ gì:
 Read:
 - Task file hiện tại — initial build: `tasks/<slug>/layer-{N}-task-{NN}.md`; change hậu-build: `tasks/<feature|bug>-<slug>/phase-<N>-task-<NN>.md`
 - .context/error-memory.md (avoid past mistakes)
-- skills/react-nodejs/conventions.md (style guide)
-- skills/react-nodejs/patterns.md (implementation patterns)
+- skills/rust-mobile-guidelines/conventions.md (style guide)
+- skills/rust-mobile-guidelines/patterns.md (implementation patterns)
 - Related source files (if modifying existing code)
 - .context/design-spec.md (nếu task liên quan UI/screen)
-- skills/react-nodejs/design-tokens.md (nếu task liên quan UI/screen)
+- skills/rust-mobile-guidelines/design-tokens.md (nếu task liên quan UI/screen)
 
 ⚙️ Mọi task code (implement/bugfix/refactor):
 - Đọc `skills/superpowers/SKILL.md` — Iron Law debug + TDD gate
@@ -214,7 +214,7 @@ Read:
 
 Nếu task liên quan đến UI/component:
 - .context/design-spec.md (layout spec cho screen này)
-- skills/react-nodejs/design-tokens.md (colors, typography, spacing)
+- skills/rust-mobile-guidelines/design-tokens.md (colors, typography, spacing)
 → PHẢI đọc design tokens trước khi viết bất kỳ UI component nào
 ```
 

@@ -36,7 +36,7 @@ Trước khi làm, đọc theo thứ tự:
 1. `.agent/FEATURE_WORKFLOW.md`
 2. `.context/project-config.md`
 3. Task file được giao
-4. Conventions của repo theo profile: chỉ dùng `skills/react-nodejs/*` nếu stack/profile khớp React/Node.
+4. Conventions của repo theo profile: chỉ dùng `skills/rust-mobile-guidelines/*` nếu stack/profile khớp React/Node.
    Chỉ áp dụng Prisma pattern nếu `db_tool: prisma`; chỉ dùng pnpm command nếu `package_manager: pnpm`.
 
 Tuân thủ toàn bộ quy tắc của `builder` (scope, TDD, ponytail, security, check_commands,

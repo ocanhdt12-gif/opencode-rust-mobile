@@ -32,7 +32,7 @@ Nếu chưa hoàn thành Phase 1 (Root Cause Investigation), **KHÔNG được �
 
 ## Output
 - Append to `.context/error-memory.md`
-- (Post-project) Update `skills/react-nodejs/common-errors.md`
+- (Post-project) Update `skills/rust-mobile-guidelines/common-errors.md`
 
 ---
 
@@ -93,7 +93,7 @@ Error:
 After project completes (or every 5 errors), extract generalizable patterns:
 
 ```markdown
-// skills/react-nodejs/common-errors.md
+// skills/rust-mobile-guidelines/common-errors.md
 
 ## Pattern: {Name}
 

@@ -57,16 +57,16 @@ Repo chưa cài tool / không có app code / không áp dụng → ghi `N/A` ho�
 
 | Skill | Ai chạy | Gate |
 |---|---|---|
-| `skills/anti-slop/SKILL.md` | Builder + Reviewer, task đụng TS/JS | `npx oxlint` (khi repo có oxlint config); error mới → FAIL. Bổ trợ `aislop` (mùi nội dung) bằng mùi kiểu dáng code |
+| `cargo clippy` + `cargo fmt` | Builder + Reviewer, task đụng Rust | `cargo clippy --all-targets -- -D warnings`; warning mới → FAIL. Bổ trợ `aislop` (mùi nội dung) |
 | `skills/open-code-review/SKILL.md` | Reviewer, task code change | `ocr review`/`ocr delegate`; **CRITICAL** (XSS/SQLi/NPE/thread-safety) → FAIL, ≥3 MAJOR → FAIL. Chưa cài `ocr` → ghi chú, không chặn PASS |
 | `skills/ai-readable-codebase/SKILL.md` | Reviewer mọi phase + Builder khi viết mới | AI-chaos indicators **≥3 → FAIL**; code mới đổi luồng chính phải cập nhật `README.md`/`ARCHITECTURE.md` |
-| `skills/ai-friendly-web/SKILL.md` | Reviewer + DevOps, task/web public-facing | thiếu `llms.txt`/`robots.txt`/`sitemap.xml` hoặc chặn AI crawlers → **MAJOR → FAIL** |
-| `skills/m3e-canvas/SKILL.md` | Builder Phase 3 UI (optional) | sketch screen → prompt lưu `.context/design-spec.md`; **không bắt buộc** mỗi task |
+| (N/A cho Rust desktop/mobile) | Reviewer + DevOps, task/web public-facing | thiếu `llms.txt`/`robots.txt`/`sitemap.xml` hoặc chặn AI crawlers → **MAJOR → FAIL** |
+| `skills/impeccable/SKILL.md` | Builder Phase 3 UI (optional) | sketch screen → prompt lưu `.context/design-spec.md`; **không bắt buộc** mỗi task |
 | `skills/blitzstrike/SKILL.md` | Reviewer Phase 2 STRICT (optional) | pentest live trên môi trường được phép; chỉ finding **STRIKE-validated** mới tính FAIL; chưa cài/không môi trường → bỏ qua |
 | `skills/security/codex-security.md` | Reviewer, task nhạy cảm (auth/API/secrets/endpoint mới, optional) | `npx @openai/codex-security scan <dir>` — CRITICAL **verified** → FAIL, ≥3 MAJOR → FAIL; chưa login/không network/không cài được → ghi `N/A` + lý do, không chặn PASS |
 
-> Thứ tự ưu tiên khi mâu thuẫn: `impeccable` (craft-floor) > `taste-skill-v2` > `ui-ux-pro-max`;
-> `aislop` (nội dung) + `anti-slop` (kiểu dáng) + `ocr` (bug thật) là 3 lớp bổ trợ, không thay thế nhau.
+> Thứ tự ưu tiên khi mâu thuẫn: `impeccable` (craft-floor) > `taste-skill-v2`;
+> `aislop` (nội dung) + `cargo clippy` (lint Rust) + `ocr` (bug thật) là 3 lớp bổ trợ, không thay thế nhau.
 
 ---
 
