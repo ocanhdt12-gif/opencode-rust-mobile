@@ -20,14 +20,22 @@ jobs:
           components: clippy, rustfmt
       - name: Cache cargo
         uses: Swatinem/rust-cache@v2
+      - name: Install cargo tools (nextest + machete)
+        uses: taiki-e/install-action@v2
+        with:
+          tool: cargo-nextest,cargo-machete
       - name: Format check
         run: cargo fmt --all --check
       - name: Clippy (deny warnings)
         run: cargo clippy --workspace --all-targets -- -D warnings
       - name: Build (release)
         run: cargo build --workspace --release
-      - name: Test
-        run: cargo test --workspace
+      - name: Test (nextest)
+        run: cargo nextest run --workspace
+      - name: Doctests
+        run: cargo test --workspace --doc
+      - name: Unused deps (machete)
+        run: cargo machete --with-metadata
 
   security:
     name: supply-chain audit + deny

@@ -8,7 +8,17 @@ description: "Convention code mobile Rust (Dioxus) cho project con sinh từ ope
 Project sinh từ `opencode-rust-mobile` mặc định dùng **Dioxus** — UI viết 100% Rust, một codebase
 build ra **iOS · Android · desktop · web**. Skill này giữ convention để code nhất quán, dễ review.
 
-> Stack: Dioxus 0.6+ · `dx` CLI (dioxus-cli) để serve/build/bundle · tokio cho async · cùng hệ error
+> Stack: **Dioxus 0.7** · `dx` CLI (dioxus-cli) để serve/build/bundle · tokio cho async · cùng hệ error
+>
+> **Mới ở 0.7 (verified 11/2026, pin `dioxus = "0.7"`):**
+> - **Stores** — primitive mới cho nested reactive state (thay dần pattern lồng `Signal<Struct>` thủ công).
+> - **Dioxus Primitives** — bộ radix-style component first-party (dialog, menu, tabs...).
+> - **Automatic Tailwind** — zero-setup, không cần cấu hình tailwind riêng.
+> - **Hot-patching (Subsecond)** — `dx serve --hotpatch` vá code Rust lúc runtime, dev nhanh hẳn.
+> - **Dioxus Native / Blitz** — renderer GPU (WGPU) thay WebView; còn WIP nhưng đáng theo dõi.
+> - **`dx self-update`** — cập nhật CLI trực tiếp, không cần `cargo binstall`.
+> - **Config iOS/Android** đầy đủ trong `Dioxus.toml` (schema: packages/cli/schema.json).
+> - 0.8 đang alpha → cứ bám 0.7 stable, chưa nhảy.
 > `thiserror`/`anyhow` như bản web. Cú pháp component giống Leptos (RSX) nên quen tay nhanh.
 
 ## 1. Layout
